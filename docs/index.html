@@ -917,307 +917,165 @@
   }
   footer a:hover { color: var(--orange); }
 
-  /* ===== TRY IT SECTION ===== */
-  .tryit {
+  /* ===== TRY IT YOURSELF ===== */
+  .try-it {
     max-width: 1400px;
-    margin: 0 auto;
-    padding: 88px 48px 32px;
+    margin: 80px auto 0;
+    padding: 0 48px 48px;
     border-top: 1px solid var(--line);
-    margin-top: 24px;
+    padding-top: 60px;
   }
-  .tryit-head {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 48px;
-    align-items: end;
-    margin-bottom: 56px;
-  }
-  .tryit-head h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(32px, 4.5vw, 54px);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    max-width: 760px;
-  }
-  .tryit-head h2 em {
-    font-style: italic;
-    font-weight: 500;
-    color: var(--orange);
-  }
-  .tryit-head .step {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-3);
-    text-align: right;
-    line-height: 1.7;
-  }
-  .tryit-head .step strong {
-    color: var(--orange);
-    font-weight: 500;
-  }
-
-  .tryit-grid {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 48px;
-    align-items: start;
-  }
-
-  .tryit-form {
-    background: var(--surface-1);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 28px 28px 24px;
-  }
-  .form-row {
-    margin-bottom: 22px;
-  }
-  .form-row:last-of-type { margin-bottom: 28px; }
-  .form-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--text-3);
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .form-label .num {
-    color: var(--orange);
-    font-weight: 500;
-  }
-  .form-input, .form-textarea {
-    width: 100%;
-    background: var(--bg-deep);
-    border: 1px solid var(--line-strong);
-    border-radius: 10px;
-    padding: 14px 16px;
-    color: var(--text-1);
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    transition: border-color 0.2s, background 0.2s;
-    resize: none;
-  }
-  .form-input:focus, .form-textarea:focus {
-    outline: none;
-    border-color: var(--orange);
-    background: rgba(255, 105, 0, 0.04);
-  }
-  .form-input::placeholder, .form-textarea::placeholder {
-    color: var(--text-3);
-  }
-  .form-textarea {
-    min-height: 76px;
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 1.4;
-  }
-  .form-row-split {
+  .try-header { margin-bottom: 40px; }
+  .try-header em { font-style:italic; color:var(--orange); }
+  .try-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    gap: 32px;
+    align-items: start;
   }
-
-  .form-suggestions {
+  .try-card {
+    background: var(--surface-1);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+  .try-label {
+    display: block;
+    font-size: 11px;
+    color: var(--text-3);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .try-input {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--surface-2);
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    color: var(--text-1);
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+  .try-input:focus { border-color: var(--orange); }
+  .try-select {
+    flex: 1;
+    padding: 10px;
+    background: var(--surface-2);
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    color: var(--text-1);
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+  }
+  .try-results {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--surface-2);
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 50;
+    display: none;
+  }
+  .try-results.open { display: block; }
+  .try-result-item {
+    padding: 10px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+    transition: background 0.15s;
+  }
+  .try-result-item:hover { background: var(--surface-3); }
+  .try-result-item:last-child { border-bottom: none; }
+  .try-result-sub { font-size: 11px; color: var(--text-3); margin-top: 2px; }
+  .try-chips {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-top: 10px;
+    margin: 16px 0;
   }
-  .chip {
+  .try-chip {
+    padding: 7px 12px;
     background: var(--surface-2);
-    border: 1px solid var(--line);
+    border: 1px solid var(--line-strong);
+    border-radius: 99px;
     color: var(--text-2);
-    padding: 6px 12px;
-    border-radius: 100px;
-    font-size: 11px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
     cursor: pointer;
     transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
   }
-  .chip:hover {
-    border-color: var(--orange);
-    color: var(--text-1);
-    background: rgba(255, 105, 0, 0.06);
-  }
-
-  .form-options {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    margin-bottom: 22px;
-  }
-  .form-toggle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    user-select: none;
-    font-size: 12px;
-    color: var(--text-2);
-    font-family: 'JetBrains Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-  .form-toggle input { display: none; }
-  .form-toggle-track {
-    width: 30px;
-    height: 18px;
-    background: var(--surface-3);
-    border-radius: 9px;
-    position: relative;
-    transition: background 0.2s;
-  }
-  .form-toggle-track::after {
-    content: '';
-    position: absolute;
-    top: 2px; left: 2px;
-    width: 14px; height: 14px;
-    background: var(--text-2);
-    border-radius: 50%;
-    transition: transform 0.2s, background 0.2s;
-  }
-  .form-toggle input:checked ~ .form-toggle-track {
-    background: var(--orange);
-  }
-  .form-toggle input:checked ~ .form-toggle-track::after {
-    transform: translateX(12px);
-    background: #fff;
-  }
-
-  .form-submit {
+  .try-chip:hover { border-color: var(--orange); color: var(--orange); }
+  .try-btn-primary {
     width: 100%;
+    padding: 14px;
     background: var(--orange);
     color: #fff;
     border: none;
-    border-radius: 12px;
-    padding: 16px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    border-radius: 10px;
+    font-size: 15px;
     font-weight: 600;
+    font-family: 'Inter', sans-serif;
     cursor: pointer;
-    letter-spacing: 0.02em;
-    transition: all 0.2s;
-    box-shadow: 0 0 0 0 var(--orange-glow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    transition: background 0.2s;
   }
-  .form-submit:hover {
-    background: var(--orange-soft);
-    box-shadow: 0 0 0 6px var(--orange-glow);
-  }
-  .form-submit:active { transform: scale(0.99); }
-  .form-submit svg { width: 14px; height: 14px; fill: currentColor; }
-
-  /* Output panel */
-  .tryit-output {
-    position: sticky;
-    top: 32px;
-  }
-  .tryit-phone {
+  .try-btn-primary:hover { background: var(--orange-soft); }
+  .try-btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+  .try-phone {
     width: 100%;
+    max-width: 320px;
     aspect-ratio: 9 / 19.5;
     background: linear-gradient(180deg, #1c1f27, #131519);
     border-radius: 36px;
     border: 1px solid var(--line-strong);
     padding: 8px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
-    margin-bottom: 18px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    margin: 0 auto;
   }
-  .tryit-phone-screen {
+  .try-phone-screen {
     width: 100%;
     height: 100%;
     border-radius: 28px;
     background: #000;
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
-    position: relative;
-  }
-  .tryit-phone-notch {
-    position: absolute;
-    top: 12px; left: 50%;
-    transform: translateX(-50%);
-    width: 88px; height: 24px;
-    background: #000;
-    border-radius: 14px;
-    z-index: 5;
-  }
-  .tryit-phone-status {
-    padding: 16px 24px 8px;
-    display: flex;
-    justify-content: space-between;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--text-2);
-    z-index: 4;
-  }
-  .tryit-phone-content {
-    flex: 1;
-    padding: 0 16px 24px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
-  .tryit-empty {
-    text-align: center;
-    color: var(--text-3);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    padding: 0 12px;
-    line-height: 1.8;
+  .try-device-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
   }
-  .tryit-empty-mark {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 22px;
-    color: var(--text-2);
-    margin-bottom: 12px;
-    text-transform: none;
-    letter-spacing: 0;
+  .try-device-row:last-child { border-bottom: none; }
+  .try-device-toggle {
+    width: 40px; height: 22px;
+    border-radius: 11px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
   }
-  .tryit-error {
-    color: var(--warn);
-    text-align: center;
-    font-size: 12px;
-    line-height: 1.5;
-    padding: 0 8px;
-    font-family: 'Inter', sans-serif;
-    text-transform: none;
-    letter-spacing: 0;
-  }
-  .tryit-error-mark {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 22px;
-    color: var(--warn);
-    margin-bottom: 12px;
+  .try-device-toggle .knob {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: 2px;
+    transition: left 0.2s;
   }
 
-  /* Disclosure */
-  .tryit-disclosure {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.06em;
-    color: var(--text-3);
-    line-height: 1.7;
-    text-align: center;
-    padding: 0 8px;
-  }
-  .tryit-disclosure strong {
-    color: var(--text-2);
-    font-weight: 500;
+  @media (max-width: 1100px) {
+    .try-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
   }
 
   /* ===== RESPONSIVE ===== */
@@ -1230,17 +1088,9 @@
     }
     .car { aspect-ratio: 16 / 10; }
     .phone, .home { max-width: 320px; margin: 0 auto; }
-    .tryit-grid {
-      grid-template-columns: 1fr;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-    .tryit-output { position: static; }
-    .tryit-head { grid-template-columns: 1fr; gap: 16px; }
-    .tryit-head .step { text-align: left; }
   }
   @media (max-width: 720px) {
-    header, .hero, .stage, .controls, .tryit, footer {
+    header, .hero, .stage, .controls, footer {
       padding-left: 24px;
       padding-right: 24px;
     }
@@ -1248,7 +1098,6 @@
     .timeline { grid-template-columns: 1fr; gap: 18px; }
     .beat-info { text-align: left; }
     .beat-labels { font-size: 8px; }
-    .form-row-split { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -1471,77 +1320,99 @@
   </div>
 </section>
 
-<section class="tryit">
-  <div class="tryit-head">
-    <h2>That was the script. <em>Now you write the calendar.</em></h2>
-    <div class="step">
-      Step 02<br>
-      <strong>Try it yourself</strong>
-    </div>
+<!-- ===== TRY IT YOURSELF ===== -->
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+
+<section class="try-it" id="trySection">
+  <div class="try-header">
+    <div class="eyebrow">Interactive Demo</div>
+    <h2 style="font-family:'Fraunces',serif; font-weight:300; font-size:clamp(28px,4vw,48px); line-height:1.08; letter-spacing:-0.02em; margin-bottom:12px;">
+      Now <em>you</em> write the calendar.
+    </h2>
+    <p style="color:var(--text-2); font-size:15px; line-height:1.6; max-width:560px;">
+      Add a real destination. Co-Pilot will pull your location, check live traffic via Mapbox, and generate the nudge with an actual departure time. Then tap Start Navigation to trigger the smart home routine and see your route.
+    </p>
   </div>
 
-  <div class="tryit-grid">
-    <div class="tryit-form">
-      <div class="form-row">
-        <div class="form-label"><span>What's on your calendar</span><span class="num">01</span></div>
-        <textarea class="form-textarea" id="eventInput" placeholder="9am Team Standup at Building 4"></textarea>
-        <div class="form-suggestions" id="suggestions">
-          <div class="chip" data-event="9am Team Standup at Building 4" data-dest="Building 4">9am Standup</div>
-          <div class="chip" data-event="1:30pm Lunch with Sarah in Beverly Hills" data-dest="Beverly Hills">Lunch in Beverly Hills</div>
-          <div class="chip" data-event="3pm Investor pitch at Sand Hill Road" data-dest="Sand Hill Road">Investor pitch</div>
-          <div class="chip" data-event="6:45pm Dinner reservation in Santa Monica" data-dest="Santa Monica">Dinner in Santa Monica</div>
-        </div>
-      </div>
+  <div class="try-grid">
+    <!-- LEFT: Controls -->
+    <div class="try-controls">
+      <div class="try-card">
+        <label class="try-label">Event name</label>
+        <input type="text" id="tryTitle" value="Team Standup" placeholder="e.g. Lunch with Sarah" class="try-input">
 
-      <div class="form-row-split">
-        <div class="form-row" style="margin-bottom:0;">
-          <div class="form-label"><span>Destination</span><span class="num">02</span></div>
-          <input class="form-input" id="destInput" placeholder="Building 4" value="">
+        <label class="try-label" style="margin-top:14px;">Time</label>
+        <div style="display:flex; gap:8px;">
+          <select id="tryHour" class="try-select">
+            <option value="7">7 AM</option><option value="8">8 AM</option><option value="9" selected>9 AM</option>
+            <option value="10">10 AM</option><option value="11">11 AM</option><option value="12">12 PM</option>
+            <option value="13">1 PM</option><option value="14">2 PM</option><option value="15">3 PM</option>
+            <option value="16">4 PM</option><option value="17">5 PM</option><option value="18">6 PM</option>
+            <option value="19">7 PM</option><option value="20">8 PM</option>
+          </select>
+          <select id="tryMin" class="try-select">
+            <option value="0">:00</option><option value="15">:15</option><option value="30">:30</option><option value="45">:45</option>
+          </select>
         </div>
-        <div class="form-row" style="margin-bottom:0;">
-          <div class="form-label"><span>Current time</span><span class="num">03</span></div>
-          <input class="form-input" id="currentInput" placeholder="now" value="now">
+
+        <label class="try-label" style="margin-top:14px;">Destination (search real places)</label>
+        <div style="position:relative;">
+          <input type="text" id="tryDest" value="" placeholder="Search for a place..." class="try-input" autocomplete="off">
+          <div id="tryDestResults" class="try-results"></div>
         </div>
-      </div>
+        <div id="tryDestConfirm" style="font-size:12px; color:var(--green); margin-top:4px; min-height:18px;"></div>
 
-      <div class="form-options" style="margin-top: 22px;">
-        <label class="form-toggle">
-          <input type="checkbox" id="trafficToggle" checked>
-          <div class="form-toggle-track"></div>
-          <span>Heavy traffic</span>
-        </label>
-        <label class="form-toggle">
-          <input type="checkbox" id="smartHomeToggle" checked>
-          <div class="form-toggle-track"></div>
-          <span>Smart home on</span>
-        </label>
-      </div>
+        <div class="try-chips">
+          <button class="try-chip" data-title="Team Standup" data-hour="9" data-min="0" data-dest="UCLA Anderson School of Management, Los Angeles">9am Standup at UCLA</button>
+          <button class="try-chip" data-title="Lunch with Alex" data-hour="12" data-min="0" data-dest="Din Tai Fung, Century City, Los Angeles">Lunch at Din Tai Fung</button>
+          <button class="try-chip" data-title="Sprint Review" data-hour="15" data-min="0" data-dest="WeWork, Santa Monica">3pm at WeWork SM</button>
+          <button class="try-chip" data-title="Dinner" data-hour="19" data-min="0" data-dest="Bestia, Los Angeles">Dinner at Bestia</button>
+        </div>
 
-      <button class="form-submit" id="generateBtn">
-        Generate the nudge
-        <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+        <button id="tryGenerate" class="try-btn-primary">Generate the nudge</button>
+        <p style="font-size:11px; color:var(--text-3); margin-top:8px; line-height:1.5;">
+          Uses your real location + Mapbox traffic data. The production feature would use a fine-tuned LLM for nudge phrasing (see PR/FAQ Internal FAQ #6).
+        </p>
+      </div>
     </div>
 
-    <div class="tryit-output">
-      <div class="tryit-phone">
-        <div class="tryit-phone-screen">
-          <div class="tryit-phone-notch"></div>
-          <div class="tryit-phone-status">
-            <span id="tryClock">—</span>
+    <!-- RIGHT: Phone (all screens inside) -->
+    <div class="try-output">
+      <div class="try-phone" id="tryPhone">
+        <div class="try-phone-screen">
+          <div style="padding:14px 18px 6px; display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-3);">
+            <span id="tryPhoneTime"></span>
             <span>HyperOS</span>
           </div>
-          <div class="tryit-phone-content" id="tryContent">
-            <div class="tryit-empty">
-              <div class="tryit-empty-mark">小米</div>
-              Type a calendar event<br>and tap generate<br>to see the nudge
+          <div id="tryPhoneContent" style="flex:1; padding:12px; display:flex; flex-direction:column; overflow-y:auto;">
+            <!-- Screen 0: Empty state -->
+            <div id="tryScreenEmpty" style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+              <div style="color:var(--text-3); font-size:13px; text-align:center;">
+                <div style="font-size:32px; margin-bottom:12px;">📱</div>
+                Enter an event and tap<br>"Generate the nudge"
+              </div>
+            </div>
+            <!-- Screen 1: Nudge (injected by JS) -->
+            <div id="tryScreenNudge" style="display:none; flex:1; flex-direction:column;"></div>
+            <!-- Screen 2: Device selection -->
+            <div id="tryScreenDevices" style="display:none; flex:1; flex-direction:column;">
+              <button id="tryDeviceBack" style="background:none; border:none; color:var(--text-3); font-size:11px; cursor:pointer; padding:0 0 10px; font-family:Inter,sans-serif; text-align:left;">← Back</button>
+              <div style="font-size:13px; font-weight:600; margin-bottom:2px;">Departure Routine</div>
+              <div style="font-size:11px; color:var(--text-3); margin-bottom:12px;">Toggle devices to activate when you leave</div>
+              <div id="tryDeviceListInPhone"></div>
+              <div style="flex:1;"></div>
+              <button id="tryConfirmDevicesInPhone" class="try-btn-primary" style="margin-top:10px; font-size:12px; padding:11px;">Confirm & Navigate</button>
+            </div>
+            <!-- Screen 3: Navigation / Map -->
+            <div id="tryScreenNav" style="display:none; flex:1; flex-direction:column;">
+              <button id="tryNavBack" style="background:none; border:none; color:var(--text-3); font-size:11px; cursor:pointer; padding:0 0 8px; font-family:Inter,sans-serif; text-align:left;">← End navigation</button>
+              <div id="tryMapInPhone" style="width:100%; height:180px; border-radius:10px; overflow:hidden; border:1px solid var(--line-strong);"></div>
+              <div id="tryRouteInfoInPhone" style="margin-top:8px;"></div>
+              <div id="tryDeviceDoneInPhone" style="margin-top:8px;"></div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="tryit-disclosure">
-        Generated with rule-based logic for the demo.<br>
-        The real product uses a <strong>fine-tuned small LLM</strong><br>described in the PR/FAQ (Internal FAQ #6).
       </div>
     </div>
   </div>
@@ -1756,266 +1627,310 @@
   // Init
   applyBeat(0);
 
-  // ============================================================
-  // === TRY IT YOURSELF: nudge generator ===
-  // ============================================================
+  // =====================================================
+  // TRY IT YOURSELF - Interactive Demo with Mapbox
+  // =====================================================
+  const MAPBOX_TOKEN = 'pk.eyJ1IjoiaGVucnl0cmFuMjAyNiIsImEiOiJjbXAxemJpYW8wYXdqMnJxMjI4Z24wYTEyIn0.GpF8FkC14W18gxyuJrp5ZA';
 
-  const tryEls = {
-    eventInput: document.getElementById('eventInput'),
-    destInput: document.getElementById('destInput'),
-    currentInput: document.getElementById('currentInput'),
-    trafficToggle: document.getElementById('trafficToggle'),
-    smartHomeToggle: document.getElementById('smartHomeToggle'),
-    generateBtn: document.getElementById('generateBtn'),
-    tryContent: document.getElementById('tryContent'),
-    tryClock: document.getElementById('tryClock'),
-    suggestions: document.getElementById('suggestions'),
-  };
+  let tryUserLoc = null;
+  let tryUserLocName = 'Getting location...';
+  let tryDestCoords = null;
+  let tryDestName = '';
+  let tryDirections = null;
+  let tryMapInstance = null;
+  let trySearchTimer = null;
 
-  // Suggestion chips fill the form
-  tryEls.suggestions.querySelectorAll('.chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      tryEls.eventInput.value = chip.dataset.event;
-      tryEls.destInput.value = chip.dataset.dest;
-      tryEls.eventInput.focus();
+  const tryDevices = [
+    { id:'lock', name:'Front Door', action:'Lock', icon:'\u2302', on:true },
+    { id:'lights', name:'All Lights', action:'Turn off', icon:'\u2726', on:true },
+    { id:'ac', name:'AC', action:'Set to away (28\u00B0C)', icon:'\u224B', on:true },
+    { id:'camera', name:'Cameras', action:'Arm', icon:'\u25A2', on:true },
+    { id:'vacuum', name:'Robot Vacuum', action:'Start cleaning', icon:'\u25CB', on:false },
+  ];
+
+  // Phone screen management
+  function showTryScreen(name) {
+    ['tryScreenEmpty','tryScreenNudge','tryScreenDevices','tryScreenNav'].forEach(function(id) {
+      var el = document.getElementById(id);
+      el.style.display = 'none';
+    });
+    var target = document.getElementById('tryScreen' + name.charAt(0).toUpperCase() + name.slice(1));
+    target.style.display = 'flex';
+  }
+
+  // Get user location
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      async function(pos) {
+        tryUserLoc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        try {
+          var r = await fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/' + tryUserLoc.lng + ',' + tryUserLoc.lat + '.json?access_token=' + MAPBOX_TOKEN + '&limit=1');
+          var d = await r.json();
+          if (d.features && d.features[0]) tryUserLocName = d.features[0].place_name.split(',').slice(0,2).join(',');
+          else tryUserLocName = 'Your location';
+        } catch(e) { tryUserLocName = 'Your location'; }
+      },
+      function() { tryUserLoc = { lat: 33.8894, lng: -118.3090 }; tryUserLocName = 'Gardena, CA'; }
+    );
+  }
+
+  // Place search
+  var tryDestInput = document.getElementById('tryDest');
+  var tryDestResults = document.getElementById('tryDestResults');
+  var tryDestConfirm = document.getElementById('tryDestConfirm');
+
+  tryDestInput.addEventListener('input', function() {
+    clearTimeout(trySearchTimer);
+    var q = tryDestInput.value.trim();
+    if (q.length < 3) { tryDestResults.classList.remove('open'); return; }
+    trySearchTimer = setTimeout(async function() {
+      var url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(q) + '.json?access_token=' + MAPBOX_TOKEN + '&limit=5&types=poi,address';
+      if (tryUserLoc) url += '&proximity=' + tryUserLoc.lng + ',' + tryUserLoc.lat;
+      try {
+        var r = await fetch(url); var d = await r.json();
+        tryDestResults.innerHTML = '';
+        (d.features || []).forEach(function(f) {
+          var item = document.createElement('div');
+          item.className = 'try-result-item';
+          item.innerHTML = '<div style="font-weight:500;">' + f.text + '</div><div class="try-result-sub">' + f.place_name + '</div>';
+          item.addEventListener('click', function() {
+            tryDestInput.value = f.text;
+            tryDestCoords = { lng: f.center[0], lat: f.center[1] };
+            tryDestName = f.text;
+            tryDestConfirm.textContent = '\u2713 ' + f.place_name;
+            tryDestResults.classList.remove('open');
+          });
+          tryDestResults.appendChild(item);
+        });
+        tryDestResults.classList.add('open');
+      } catch(e) {}
+    }, 400);
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('#tryDest') && !e.target.closest('#tryDestResults')) tryDestResults.classList.remove('open');
+  });
+
+  // Chips
+  document.querySelectorAll('.try-chip').forEach(function(chip) {
+    chip.addEventListener('click', async function() {
+      document.getElementById('tryTitle').value = chip.dataset.title;
+      document.getElementById('tryHour').value = chip.dataset.hour;
+      document.getElementById('tryMin').value = chip.dataset.min;
+      tryDestInput.value = chip.dataset.dest.split(',')[0];
+      tryDestConfirm.textContent = 'Looking up location...';
+      tryDestResults.classList.remove('open');
+      try {
+        var r = await fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(chip.dataset.dest) + '.json?access_token=' + MAPBOX_TOKEN + '&limit=1');
+        var d = await r.json();
+        if (d.features && d.features[0]) {
+          tryDestCoords = { lng: d.features[0].center[0], lat: d.features[0].center[1] };
+          tryDestName = d.features[0].text;
+          tryDestConfirm.textContent = '\u2713 ' + d.features[0].place_name;
+        }
+      } catch(e) { tryDestConfirm.textContent = 'Could not find location'; }
     });
   });
 
-  // Default destination follows event input if user hasn't typed one
-  let destManuallyEdited = false;
-  tryEls.destInput.addEventListener('input', () => { destManuallyEdited = true; });
+  function fmtTime(h, m) { var ap = h >= 12 ? 'PM' : 'AM'; return (h % 12 || 12) + ':' + String(m).padStart(2,'0') + ' ' + ap; }
+  function minsToText(mins) { return mins < 60 ? mins + ' min' : Math.floor(mins/60) + 'h ' + (mins%60) + 'm'; }
 
-  // ---- Time parsing ----
-  // Accepts "9am", "9:00 AM", "13:00", "1:30pm", "noon", "midnight"
-  function parseEventTime(str) {
-    if (!str) return null;
-    const s = str.toLowerCase().trim();
-    if (s.includes('noon')) return { h: 12, m: 0 };
-    if (s.includes('midnight')) return { h: 0, m: 0 };
+  // Generate nudge
+  document.getElementById('tryGenerate').addEventListener('click', async function() {
+    var btn = this;
+    var title = document.getElementById('tryTitle').value.trim();
+    var hour = parseInt(document.getElementById('tryHour').value);
+    var min = parseInt(document.getElementById('tryMin').value);
+    if (!title) { alert('Enter an event name'); return; }
+    if (!tryDestCoords) { alert('Search and select a destination'); return; }
+    if (!tryUserLoc) { alert('Still getting your location. Try again in a moment.'); return; }
 
-    // Match "9", "9am", "9:00", "9:30am", "13:00", "1:30 pm" etc.
-    const m = s.match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/i);
-    if (!m) return null;
-    let h = parseInt(m[1], 10);
-    const min = m[2] ? parseInt(m[2], 10) : 0;
-    const meridian = m[3];
+    btn.disabled = true; btn.textContent = 'Checking traffic...';
 
-    if (h > 23 || min > 59) return null;
+    try {
+      var r = await fetch('https://api.mapbox.com/directions/v5/mapbox/driving-traffic/' + tryUserLoc.lng + ',' + tryUserLoc.lat + ';' + tryDestCoords.lng + ',' + tryDestCoords.lat + '?geometries=geojson&overview=full&access_token=' + MAPBOX_TOKEN);
+      var d = await r.json();
+      if (!d.routes || !d.routes[0]) { alert('Could not find a route'); btn.disabled = false; btn.textContent = 'Generate the nudge'; return; }
 
-    if (meridian === 'pm' && h < 12) h += 12;
-    if (meridian === 'am' && h === 12) h = 0;
-    // No meridian, h <= 12: assume morning if 7-11, else accept as 24h
-    return { h, m: min };
-  }
+      var durationMin = Math.round(d.routes[0].duration / 60);
+      var distKm = (d.routes[0].distance / 1000).toFixed(1);
+      tryDirections = { duration: durationMin, distance: distKm, geometry: d.routes[0].geometry };
 
-  function formatTime(h, m) {
-    const period = h >= 12 ? 'PM' : 'AM';
-    let displayH = h % 12;
-    if (displayH === 0) displayH = 12;
-    return `${displayH}:${String(m).padStart(2, '0')} ${period}`;
-  }
+      var trafficLevel = durationMin > 45 ? 'heavy' : durationMin > 25 ? 'moderate' : 'light';
+      var trafficColor = trafficLevel === 'heavy' ? '#f87171' : trafficLevel === 'moderate' ? '#fbbf24' : '#34d399';
+      var trafficBg = trafficLevel === 'heavy' ? 'rgba(248,113,113,0.12)' : trafficLevel === 'moderate' ? 'rgba(251,191,36,0.12)' : 'rgba(52,211,153,0.12)';
 
-  function formatTimeShort(h, m) {
-    const period = h >= 12 ? 'PM' : 'AM';
-    let displayH = h % 12;
-    if (displayH === 0) displayH = 12;
-    if (m === 0) return `${displayH}${period.toLowerCase()}`;
-    return `${displayH}:${String(m).padStart(2, '0')} ${period}`;
-  }
+      var eventMins = hour * 60 + min;
+      var departureMins = eventMins - durationMin - 15;
+      var depH = Math.floor(departureMins / 60); var depM = departureMins % 60;
+      if (depH < 0) depH += 24;
+      var departureStr = fmtTime(depH, depM);
+      var eventStr = fmtTime(hour, min);
 
-  function getCurrentTime(input) {
-    if (!input || input.toLowerCase().trim() === 'now') {
-      const d = new Date();
-      return { h: d.getHours(), m: d.getMinutes() };
-    }
-    return parseEventTime(input);
-  }
+      var phrases = { heavy:['Traffic is heavier than usual.','Expect heavy traffic on your route.','Congestion ahead.'], moderate:['Moderate traffic expected.','Some traffic along the way.','Traffic is about average.'], light:['Traffic looks clear.','Roads are clear right now.','Smooth driving ahead.'] };
+      var phrase = phrases[trafficLevel][Math.floor(Math.random() * 3)];
 
-  function subtractMinutes(time, mins) {
-    let total = time.h * 60 + time.m - mins;
-    while (total < 0) total += 24 * 60;
-    return { h: Math.floor(total / 60), m: total % 60 };
-  }
+      var tom = new Date(); tom.setDate(tom.getDate() + 1);
+      var tomStr = tom.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
 
-  function diffMinutes(later, earlier) {
-    return (later.h * 60 + later.m) - (earlier.h * 60 + earlier.m);
-  }
+      // Render nudge screen
+      var nudgeEl = document.getElementById('tryScreenNudge');
+      nudgeEl.innerHTML = '' +
+        '<div style="text-align:center; margin:8px 0 6px;">' +
+          '<div style="font-family:Fraunces,serif; font-weight:300; font-size:38px; letter-spacing:-0.03em;">' + departureStr.split(' ')[0] + '</div>' +
+          '<div style="font-size:10px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.12em; margin-top:2px;">' + tomStr + '</div>' +
+        '</div>' +
+        '<div style="flex:1;"></div>' +
+        '<div style="background:rgba(28,31,39,0.95); border:1px solid var(--line-strong); border-radius:14px; padding:12px 10px 10px;">' +
+          '<div style="display:flex; align-items:center; gap:6px; margin-bottom:6px;">' +
+            '<div style="width:18px; height:18px; border-radius:5px; background:var(--orange); display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#fff; font-family:Fraunces,serif;">\u5C0F</div>' +
+            '<div style="font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-2);">Commute Co-Pilot</div>' +
+            '<div style="margin-left:auto; font-size:8px; color:var(--text-3); font-family:JetBrains Mono,monospace;">now</div>' +
+          '</div>' +
+          '<div style="font-size:12px; font-weight:600; margin-bottom:3px; line-height:1.35;">Leave by ' + departureStr + ' for your ' + eventStr + ' ' + title + '.</div>' +
+          '<div style="font-size:11px; color:var(--text-2); line-height:1.4; margin-bottom:10px;">' + phrase + ' ' + minsToText(durationMin) + ' drive to ' + tryDestName + '.</div>' +
+          '<div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:10px;">' +
+            '<span style="background:' + trafficBg + '; color:' + trafficColor + '; padding:3px 8px; border-radius:99px; font-size:10px; font-weight:600;">' + minsToText(durationMin) + '</span>' +
+            '<span style="background:' + trafficBg + '; color:' + trafficColor + '; padding:3px 8px; border-radius:99px; font-size:10px; font-weight:600; text-transform:capitalize;">' + trafficLevel + '</span>' +
+            '<span style="background:rgba(96,165,250,0.12); color:#60a5fa; padding:3px 8px; border-radius:99px; font-size:10px; font-weight:600;">' + distKm + ' km</span>' +
+          '</div>' +
+          '<div style="display:flex; gap:5px;">' +
+            '<button id="tryStartNav" style="flex:1; padding:8px; border-radius:10px; border:none; background:var(--orange); color:#fff; font-size:10px; font-weight:600; cursor:pointer; font-family:Inter,sans-serif;">Start navigation</button>' +
+            '<button style="padding:8px 12px; border-radius:10px; border:1px solid var(--line-strong); background:transparent; color:var(--text-2); font-size:10px; cursor:pointer; font-family:Inter,sans-serif;">Not today</button>' +
+          '</div>' +
+        '</div>';
 
-  // ---- Drive time estimation ----
-  function estimateDrive(destination, heavyTraffic) {
-    // Hash destination into a base drive time so same destination gives same baseline
-    let hash = 0;
-    for (let i = 0; i < destination.length; i++) {
-      hash = ((hash << 5) - hash) + destination.charCodeAt(i);
-      hash |= 0;
-    }
-    const base = 18 + (Math.abs(hash) % 22); // 18-40 min baseline
-    const trafficMult = heavyTraffic ? 1.35 : 1.0;
-    return Math.round(base * trafficMult);
-  }
+      document.getElementById('tryPhoneTime').textContent = departureStr.split(' ')[0];
+      showTryScreen('nudge');
 
-  // ---- Nudge phrasing ----
-  function pickRandom(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-  }
+      // Wire Start Nav -> devices screen
+      document.getElementById('tryStartNav').addEventListener('click', function() {
+        renderTryDevicesInPhone();
+        showTryScreen('devices');
+      });
 
-  const trafficPhrases = {
-    heavy: [
-      "Traffic on the 405 is heavier than usual",
-      "Heavy traffic ahead — adding 12 min to your usual",
-      "Big slowdown on I-10 right now",
-      "Traffic is worse than your typical Tuesday",
-      "Heavier than usual on your route",
-    ],
-    light: [
-      "Traffic is light right now",
-      "Roads are clear — quicker than your usual",
-      "Smooth drive predicted",
-      "Lighter traffic than your morning average",
-    ],
-  };
-
-  function buildNudge(eventText, destination, eventTime, currentTime, driveMin, heavyTraffic) {
-    const buffer = heavyTraffic ? 6 : 4; // get-ready buffer
-    const departureTime = subtractMinutes(eventTime, driveMin + buffer);
-    const minutesUntilDeparture = diffMinutes(departureTime, currentTime);
-
-    // Title: "Leave by [time] for your [eventLabel]"
-    const eventLabel = extractEventLabel(eventText);
-    const departureStr = formatTimeShort(departureTime.h, departureTime.m);
-
-    const titleVariants = [
-      `Leave by ${departureStr} for your ${eventLabel}.`,
-      `Time to head out — ${departureStr} for ${eventLabel}.`,
-      `${departureStr} departure for ${eventLabel}.`,
-    ];
-    const title = pickRandom(titleVariants);
-
-    const trafficPhrase = pickRandom(heavyTraffic ? trafficPhrases.heavy : trafficPhrases.light);
-    const body = `${trafficPhrase}. ${driveMin} min drive to ${destination}.`;
-
-    return {
-      title,
-      body,
-      currentTimeStr: formatTimeShort(currentTime.h, currentTime.m),
-      departureTimeStr: departureStr,
-      minutesUntilDeparture,
-    };
-  }
-
-  function extractEventLabel(eventText) {
-    // Strip leading time to leave just the event name
-    let label = eventText
-      .replace(/^\s*(noon|midnight)\s*/i, '')
-      .replace(/^\s*\d{1,2}(:\d{2})?\s*(am|pm)?\s*/i, '')
-      .replace(/\s+at\s+.+$/i, '')
-      .replace(/\s+in\s+.+$/i, '')
-      .trim();
-    if (!label) label = eventText.trim();
-    // Lowercase first letter for natural reading after "for your"
-    if (label.length > 0) {
-      label = label[0].toLowerCase() + label.slice(1);
-    }
-    return label;
-  }
-
-  function renderError(msg) {
-    tryEls.tryClock.textContent = '—';
-    tryEls.tryContent.innerHTML = `
-      <div class="tryit-error">
-        <div class="tryit-error-mark">⚠</div>
-        ${msg}
-      </div>
-    `;
-  }
-
-  function renderNudge(nudge, eventTime, smartHome) {
-    tryEls.tryClock.textContent = nudge.currentTimeStr.replace(/\s*(am|pm)/i, '').trim();
-
-    // Format "now" indicator
-    let nowLabel;
-    if (nudge.minutesUntilDeparture <= 0) {
-      nowLabel = 'now · leave now';
-    } else if (nudge.minutesUntilDeparture < 60) {
-      nowLabel = `now · ${nudge.minutesUntilDeparture} min before`;
-    } else {
-      nowLabel = 'now';
-    }
-
-    const homeFooter = smartHome
-      ? `<div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 11px; color: var(--text-3); font-family: 'JetBrains Mono', monospace; text-align: center; letter-spacing: 0.06em;">+ 6 home devices ready to follow</div>`
-      : '';
-
-    tryEls.tryContent.innerHTML = `
-      <div class="nudge visible" style="opacity:1; transform:none;">
-        <div class="nudge-head">
-          <div class="nudge-icon">小</div>
-          <div class="nudge-app">Commute Co-Pilot</div>
-          <div class="nudge-time">${nowLabel}</div>
-        </div>
-        <div class="nudge-title">${nudge.title}</div>
-        <div class="nudge-body">${nudge.body}</div>
-        <div class="nudge-actions">
-          <button class="nudge-btn primary">Start navigation</button>
-          <button class="nudge-btn secondary">Not today</button>
-        </div>
-        ${homeFooter}
-      </div>
-    `;
-  }
-
-  function generate() {
-    const eventText = tryEls.eventInput.value.trim();
-    if (!eventText) {
-      renderError('Add a calendar event first — like <em>"9am standup at Building 4"</em>.');
-      return;
-    }
-
-    const eventTime = parseEventTime(eventText);
-    if (!eventTime) {
-      renderError('Could not find a time in that event. Try something like <em>"9am"</em>, <em>"1:30pm"</em>, or <em>"13:00"</em>.');
-      return;
-    }
-
-    let destination = tryEls.destInput.value.trim();
-    if (!destination) {
-      // Try to extract from event text
-      const atMatch = eventText.match(/\s+at\s+(.+)$/i);
-      const inMatch = eventText.match(/\s+in\s+(.+)$/i);
-      destination = atMatch ? atMatch[1].trim() : (inMatch ? inMatch[1].trim() : 'your destination');
-    }
-
-    const currentTime = getCurrentTime(tryEls.currentInput.value);
-    if (!currentTime) {
-      renderError('Could not parse the current time. Use <em>"now"</em> or a time like <em>"7:45am"</em>.');
-      return;
-    }
-
-    if (diffMinutes(eventTime, currentTime) < 0) {
-      renderError('Your event is earlier than the current time. Set a future event time.');
-      return;
-    }
-
-    const heavyTraffic = tryEls.trafficToggle.checked;
-    const driveMin = estimateDrive(destination, heavyTraffic);
-    const nudge = buildNudge(eventText, destination, eventTime, currentTime, driveMin, heavyTraffic);
-
-    if (nudge.minutesUntilDeparture < -5) {
-      renderError(`That event starts in ${diffMinutes(eventTime, currentTime)} min, but the drive is ${driveMin} min. You'd already be late.`);
-      return;
-    }
-
-    renderNudge(nudge, eventTime, tryEls.smartHomeToggle.checked);
-  }
-
-  tryEls.generateBtn.addEventListener('click', generate);
-  // Generate on Enter in event input
-  tryEls.eventInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && (e.metaKey || e.ctrlKey || !e.shiftKey)) {
-      e.preventDefault();
-      generate();
-    }
+    } catch(e) { alert('Error: ' + e.message); }
+    btn.disabled = false; btn.textContent = 'Generate the nudge';
   });
+
+  // Render device toggles inside phone
+  function renderTryDevicesInPhone() {
+    var list = document.getElementById('tryDeviceListInPhone');
+    list.innerHTML = '';
+    tryDevices.forEach(function(d) {
+      var row = document.createElement('div');
+      row.className = 'try-device-row';
+      row.dataset.id = d.id;
+      row.innerHTML = '' +
+        '<span style="font-size:14px; width:24px; text-align:center; color:var(--text-2);">' + d.icon + '</span>' +
+        '<div style="flex:1;">' +
+          '<div style="font-size:12px; font-weight:500;">' + d.name + '</div>' +
+          '<div style="font-size:10px; color:var(--text-3);">' + d.action + '</div>' +
+        '</div>' +
+        '<div class="try-device-status" style="font-size:10px; color:var(--green); font-weight:600; display:none; white-space:nowrap;">Done \u2713</div>' +
+        '<div class="try-device-toggle" data-id="' + d.id + '" style="background:' + (d.on ? 'var(--orange)' : 'var(--surface-3)') + ';">' +
+          '<div class="knob" style="left:' + (d.on ? '20px' : '2px') + ';"></div>' +
+        '</div>';
+      row.querySelector('.try-device-toggle').addEventListener('click', function() {
+        d.on = !d.on;
+        this.style.background = d.on ? 'var(--orange)' : 'var(--surface-3)';
+        this.querySelector('.knob').style.left = d.on ? '20px' : '2px';
+      });
+      list.appendChild(row);
+    });
+  }
+
+  // Back buttons
+  document.getElementById('tryDeviceBack').addEventListener('click', function() { showTryScreen('nudge'); });
+  document.getElementById('tryNavBack').addEventListener('click', function() { showTryScreen('nudge'); });
+
+  // Confirm devices: animate Done, then show map
+  document.getElementById('tryConfirmDevicesInPhone').addEventListener('click', function() {
+    if (!tryUserLoc || !tryDestCoords || !tryDirections) return;
+    var btn = this;
+    btn.disabled = true; btn.textContent = 'Activating...';
+
+    var rows = document.querySelectorAll('#tryDeviceListInPhone .try-device-row');
+    var enabledRows = [];
+    rows.forEach(function(row) {
+      var devId = row.dataset.id;
+      var dev = tryDevices.find(function(d) { return d.id === devId; });
+      if (dev && dev.on) enabledRows.push(row);
+    });
+
+    // Cascade the Done animation
+    enabledRows.forEach(function(row, i) {
+      setTimeout(function() {
+        var toggle = row.querySelector('.try-device-toggle');
+        var status = row.querySelector('.try-device-status');
+        toggle.style.display = 'none';
+        status.style.display = 'block';
+        status.style.opacity = '0';
+        status.style.transform = 'translateX(10px)';
+        status.style.transition = 'opacity 0.3s, transform 0.3s';
+        requestAnimationFrame(function() {
+          status.style.opacity = '1';
+          status.style.transform = 'translateX(0)';
+        });
+      }, (i + 1) * 500);
+    });
+
+    // After all done, switch to nav screen
+    setTimeout(function() {
+      showTryScreen('nav');
+      renderTryNav();
+      btn.disabled = false; btn.textContent = 'Confirm & Navigate';
+    }, (enabledRows.length + 1) * 500 + 300);
+  });
+
+  // Render navigation screen with map
+  function renderTryNav() {
+    var mapDiv = document.getElementById('tryMapInPhone');
+    mapDiv.innerHTML = '';
+    if (tryMapInstance) { tryMapInstance.remove(); tryMapInstance = null; }
+
+    mapboxgl.accessToken = MAPBOX_TOKEN;
+    tryMapInstance = new mapboxgl.Map({
+      container: mapDiv,
+      style: 'mapbox://styles/mapbox/dark-v11',
+      center: [tryUserLoc.lng, tryUserLoc.lat],
+      zoom: 10
+    });
+
+    tryMapInstance.on('load', function() {
+      new mapboxgl.Marker({ color: '#ff6900', scale: 0.7 }).setLngLat([tryUserLoc.lng, tryUserLoc.lat]).addTo(tryMapInstance);
+      new mapboxgl.Marker({ color: '#34d399', scale: 0.7 }).setLngLat([tryDestCoords.lng, tryDestCoords.lat]).addTo(tryMapInstance);
+      tryMapInstance.addSource('route', { type:'geojson', data:{ type:'Feature', geometry: tryDirections.geometry } });
+      tryMapInstance.addLayer({ id:'route', type:'line', source:'route', layout:{'line-join':'round','line-cap':'round'}, paint:{'line-color':'#ff6900','line-width':3,'line-opacity':0.85} });
+      var coords = tryDirections.geometry.coordinates;
+      var bounds = coords.reduce(function(b,c){ return b.extend(c); }, new mapboxgl.LngLatBounds(coords[0], coords[0]));
+      tryMapInstance.fitBounds(bounds, { padding: 30, maxZoom: 13 });
+    });
+
+    // Route info
+    document.getElementById('tryRouteInfoInPhone').innerHTML = '' +
+      '<div style="background:var(--surface-1); border:1px solid var(--line); border-radius:10px; padding:10px;">' +
+        '<div style="font-size:14px; font-weight:700;">' + minsToText(tryDirections.duration) + '</div>' +
+        '<div style="font-size:10px; color:var(--text-2); margin-bottom:6px;">' + tryDirections.distance + ' km to ' + tryDestName + '</div>' +
+        '<div style="background:var(--surface-2); border-radius:6px; padding:6px 8px; font-size:11px;">' +
+          '<span style="color:var(--orange);">\u25CF</span> ' + tryUserLocName.split(',')[0].trim() +
+          ' <span style="color:var(--text-3);">\u2192</span> ' +
+          '<span style="color:var(--green);">\u25CF</span> ' + tryDestName +
+        '</div>' +
+      '</div>';
+
+    // Device done summary
+    var enabled = tryDevices.filter(function(d) { return d.on; });
+    var html = '<div style="background:var(--surface-1); border:1px solid var(--line); border-radius:10px; padding:10px;">' +
+      '<div style="font-size:12px; font-weight:600; margin-bottom:6px;">Departure routine complete</div>';
+    enabled.forEach(function(d) {
+      html += '<div style="display:flex; align-items:center; gap:6px; padding:3px 0; font-size:11px; color:var(--text-2);">' +
+        '<span>' + d.icon + '</span><span>' + d.name + ': ' + d.action + '</span>' +
+        '<span style="margin-left:auto; color:var(--green);">\u2713</span></div>';
+    });
+    html += '</div>';
+    document.getElementById('tryDeviceDoneInPhone').innerHTML = html;
+  }
 </script>
 
 </body>
